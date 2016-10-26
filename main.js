@@ -87,10 +87,10 @@ function step () {
           resolve(stdout)
         })
 
-        const log = (d, logFn) => {
-          d = d.trim()
-          if (d) {
-            logFn(d.trim())
+        const log = (message, logFn) => {
+          message = message.trim()
+          if (message) {
+            logFn(message)
           }
         }
 
