@@ -1,8 +1,8 @@
 module.exports = {
-  "env": {
-    "jest": true
+  env: {
+    jest: true
   },
-"globals": {
-  test: true
-}
+  globals: {
+    test: true
+  }
 }
