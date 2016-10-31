@@ -28,8 +28,16 @@ let started = false
  */
 function handleInput (input) {
   input = input.toString().trim()
-  if (unblock.resolve && input === unblock.on ||
-      Array.isArray(unblock.on) && unblock.on.indexOf(input) !== -1) {
+  let inputAllowed
+
+  if (Array.isArray(unblock.on)) {
+    inputAllowed = unblock.on.indexOf(input) !== -1
+  }
+  else  {
+    inputAllowed = input === unblock.on
+  }
+
+  if (unblock.resolve && inputAllowed) {
     unblock.resolve(input)
     delete unblock.resolve
   }
