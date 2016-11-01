@@ -1,0 +1,24 @@
+{
+  "name": "unshackle",
+  "version": "0.0.1",
+  "description": "A JavaScript software release script runner.",
+  "author": "Tim Nunamaker <tim.nunamaker@bazaarvoice.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bazaarvoice/unshackle"
+  },
+  "main": "main.js",
+  "scripts": {
+    "lint": "eslint main.js lib test",
+    "test": "jest tests"
+  },
+  "jest": {
+    "testRegex": "(/tests/[^\\.]*|\\.(test|spec))\\.(js|jsx)$"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "jest": "^16.0.2",
+    "minimist": "^1.2.0"
+  }
+}
