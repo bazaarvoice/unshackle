@@ -30,6 +30,7 @@ function handleInput (input) {
   input = input.toString().trim()
   let inputAllowed
 
+  // unblock.on is a list of allowed input values
   if (Array.isArray(unblock.on)) {
     inputAllowed = unblock.on.indexOf(input) !== -1
   }

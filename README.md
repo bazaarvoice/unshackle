@@ -74,6 +74,8 @@ unshackle
 .done('Thanks! This release has been a success.')
 ```
 
+### Relocating your release script
+
 If you want to edit a release script that is in source control, you might want
 to make a copy of it outside of your project. For example, if changes were to
 make your Git working directory dirty, for example, it could interfere with
@@ -96,6 +98,7 @@ force such a step to always run, and prompts always run by default.
 const state = {}
 
 unshackle
+// An optional step to print a message. It can also be used to specify a mark.
 .start('Starting a release', 'deploy')
 
 // This step is skipped, because it is before the "deploy" mark.
