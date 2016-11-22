@@ -3,6 +3,12 @@
   <img alt="unshackle" src="https://cloud.githubusercontent.com/assets/1095217/19737639/cf70c50c-9b79-11e6-8d46-8d469c7c3b76.png" width="480">
 </p>
 
+<p align="center">
+  <a href="https://travis-ci.org/bazaarvoice/unshackle">
+    <img alt="Travis Status" src="https://travis-ci.org/bazaarvoice/unshackle.svg">
+  </a>
+</p>
+
 ## About
 
 Unshackle is a small release scripting [DSL](https://en.wikipedia.org/wiki/Domain-specific_language) for JavaScript projects. If releasing new versions of your JavaScript application involves running the same dozens of Git commands, intermixed with various CLI tools and manual by-a-human steps, it might be for you. In particular, unshackle aims to provide a simple language for combining a series of shell, human, and arbitrary JavaScript tasks.
