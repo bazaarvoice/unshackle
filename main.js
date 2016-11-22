@@ -267,12 +267,20 @@ function apiify (promise) {
         [mark, message, choices] = arguments
       }
 
+      process.stdin.addListener('data', handleInput)
+      process.stdin.resume()
+
       return apiify(wrap(mark, this.promise, () => {
         return new Promise(resolve => {
           choices = choices || ['y']
           console.log(`${message} [${choices.join(', ')}]`)
           unblock.on = choices
           unblock.resolve = resolve
+
+          resolve.then(() => {
+            process.stdin.pause()
+            process.stdin.removeListener('data', handleInput)
+          })
         })
       // For now, prompt steps are always required.
       }, false))
@@ -284,5 +292,4 @@ function apiify (promise) {
   }
 }
 
-process.openStdin().addListener('data', handleInput)
 module.exports = apiify(Promise.resolve())
