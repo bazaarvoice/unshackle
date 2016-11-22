@@ -111,10 +111,12 @@ unshackle
 // "deploy" mark
 .run(type => state.type = type, true)
 
-// This step has the "deploy" mark, so all steps from here on will run.
+// This step has the "deploy" mark, so when used, all steps from here on will
+// run.
 .run('deploy', () => {
   deployVersion(state.type)
 })
-.run('echo "Deployment complete"')
-.done()
+
+// This prints a message and exits the entire process.
+.done('Deployment complete')
 ```
