@@ -110,6 +110,8 @@ function halt (code, message) {
  * blocked on the resolution of promise.
  */
 function apiify (promise) {
+  promise.catch(console.error)
+
   return {
     promise: promise,
     /**
@@ -267,20 +269,19 @@ function apiify (promise) {
         [mark, message, choices] = arguments
       }
 
-      process.stdin.addListener('data', handleInput)
-      process.stdin.resume()
-
       return apiify(wrap(mark, this.promise, () => {
         return new Promise(resolve => {
+          process.stdin.addListener('data', handleInput)
+          process.stdin.resume()
+
           choices = choices || ['y']
           console.log(`${message} [${choices.join(', ')}]`)
           unblock.on = choices
           unblock.resolve = resolve
-
-          resolve.then(() => {
-            process.stdin.pause()
-            process.stdin.removeListener('data', handleInput)
-          })
+        }).then(data => {
+          process.stdin.pause()
+          process.stdin.removeListener('data', handleInput)
+          return data
         })
       // For now, prompt steps are always required.
       }, false))
