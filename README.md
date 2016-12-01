@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="https://travis-ci.org/bazaarvoice/unshackle">
-    <img alt="Travis Status" src="https://travis-ci.org/bazaarvoice/unshackle.svg">
+    <img alt="Travis Status" src="https://travis-ci.org/bazaarvoice/unshackle.svg?branch=master">
   </a>
 </p>
 
