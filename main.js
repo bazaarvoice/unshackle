@@ -269,6 +269,8 @@ function apiify (promise) {
         [mark, message, choices] = arguments
       }
 
+      const skippable = !choices
+
       return apiify(wrap(mark, this.promise, () => {
         return new Promise(resolve => {
           process.stdin.addListener('data', handleInput)
@@ -283,8 +285,8 @@ function apiify (promise) {
           process.stdin.removeListener('data', handleInput)
           return data
         })
-      // For now, prompt steps are always required.
-      }, false))
+      // For now, non-default prompt steps are always required.
+      }, skippable))
     },
     done: function (msg) {
       promise.then(() => halt(0, msg)).catch(this.fail)
