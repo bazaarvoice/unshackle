@@ -207,7 +207,7 @@ function apiify (promise) {
           console.log(`$ ${command}`)
           return new Promise(resolve => {
             // Use a very large (1 MB) buffer so large amounts of IO data do not crash.
-            const execution = cp.exec(command, {maxBuffer: 1024 * 1000}, (error, stdout) => {
+            const execution = cp.exec(command, { maxBuffer: 1024 * 1000 }, (error, stdout) => {
               if (error) {
                 console.error(error.stack)
                 process.exit(1)
