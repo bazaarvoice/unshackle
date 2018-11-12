@@ -1,6 +1,6 @@
 {
   "name": "unshackle",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "A JavaScript software release script runner.",
   "author": "Tim Nunamaker <tim.nunamaker@bazaarvoice.com>",
   "license": "SEE LICENSE IN LICENSE.md",
